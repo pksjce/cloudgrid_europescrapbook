@@ -732,9 +732,3 @@ perspective effects (not including the modals and the overlay).
 @media screen and (max-width: 32em) {
 	body { font-size: 75%; }
 }
-
-.md-trigger:hover { 
-	-webkit-transform: rotate(-3.5deg); 
-	-moz-transform: rotate(-3.5deg); 
-	-o-transform: rotate(-3.5deg); 
-}
