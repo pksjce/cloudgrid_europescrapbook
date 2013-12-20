@@ -27,7 +27,30 @@
         <!-- classie.js by @desandro: https://github.com/desandro/classie -->
 		<script src="classie.js"></script>
         <script type='text/javascript'>
-        	// Create a random number of items between 100 and 200.
+
+        	var photobucketUrl = "http://i639.photobucket.com/albums/uu116/pksjce/";
+        	var pictures = [
+        		"IMG_9129.jpg",
+        		"IMG_8731.jpg",
+				"IMG_8856.jpg",
+				"IMG_8898.jpg",
+				"IMG_9473.jpg",
+				"IMG_9529.jpg",
+				"IMG_9572.jpg",
+				"IMG_9634.jpg",
+				"IMG_9690.jpg",
+				"IMG_9742.jpg",
+				"IMG_86731.jpg",
+				"IMG_20130927_022141.jpg",
+				"IMG_20130928_015946.jpg",
+				"IMG_20130928_103824.jpg",
+				"IMG_20130930_160617.jpg",
+				"IMG_20131001_165100.jpg",
+				"IMG_20131004_110032 (1).jpg",
+				"IMG_20131006_085157.jpg",
+				"IMG_20131008_105104.jpg",
+				"IMG_20131008_192235.jpg"
+        	];
 			var $element;
 			var children = [];
 			var $gridContainer = $('.grid');
@@ -36,12 +59,15 @@
 			var rows;
 
 			for (var i=0; i < items; i++) {
-				// Set the number of rows and columns the element should use.
+				
+				$photo = $('<img>').attr('src', photobucketUrl + pictures[i]).attr('style', 'width:100%;height:70%');
+				$text = $('<div>').html('will put in descriptions');
 				$element = $('<div>').addClass('gridItem').addClass('md-trigger').attr('data-modal','modal-1');
+				$element.append($photo).append($text);
 				columns = 6 ;
 				rows = 5 + Math.floor(Math.random() * 200) % 5;
 
-				$element.text(columns + 'x' + rows);
+				//$element.text(columns + 'x' + rows);
 				$.data($element, 'grid-columns', columns);
 				$.data($element, 'grid-rows', rows);
 				$gridContainer.append($element);
@@ -50,11 +76,11 @@
 
 			$gridContainer.cloudGrid({
 				children: children,
-				gridGutter: 13,
+				gridGutter: 20,
 				gridSize: 20
 			});
-			init();
-			function init() {
+			initModal();
+			function initModal() {
 				var overlay = document.querySelector( '.md-overlay' );
 				[].slice.call( document.querySelectorAll( '.md-trigger' ) ).forEach( function( el, i ) {
 					var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
